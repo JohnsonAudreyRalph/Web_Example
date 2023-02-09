@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/webcam-easy@1.0.5/dist/webcam-easy.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <style>
+        .tv-frame {
+            position: absolute;
+            width: calc(100vw - 0px);
+            height: calc(100vh - 100px);
+            border: 20px solid black;
+            border-radius: 40px;
+            overflow: hidden;
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+            position: absolute;
+        }
+        #video{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .save_btn{
+            margin-top: calc(90vh - 10px);
+            margin-left: calc(0vh);
+            position: absolute;
+            border: 2px solid red;
+        }
+        canvas{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tv-frame">
+        <div class="screen">
+            <video id="video" autoplay></video>
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+    
+    <div class="text-center">
+        <a download class="btn btn-info save_btn" onclick="takeAPicture()">Chụp và lưu</a>
+    </div>
+    <script>
+        var video = document.querySelector('video');
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        .then(function(stream) {
+            video.srcObject = stream;
+        })
+        .catch(function(error) {
+            console.error('Lỗi không mở được camera:', error);
+            alert('Lỗi không mở được camera:')
+        });
+        const canvasElement = document.getElementById('canvas');
+        const webcam = new Webcam(video, 'user', canvasElement);
+
+        function takeAPicture(){
+            let picture = webcam.snap();
+            document.querySelector('a').href = picture;
+        }
+    </script>
+</body>
+</html>
