@@ -42,7 +42,6 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-
 }
 
 .navigation ul li{
@@ -245,5 +244,61 @@ body{
 .cardBox .card .iconBx{
     font-size: 3.5em;
     color: var(--black_2);
-    /* https://youtu.be/nUUsUAPEjFc?t=2262 */
+}
+
+.cardBox .card:hover{
+    background: var(--blue);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .carName,
+.cardBox .card:hover .iconBx{
+    color: var(--grey);
+}
+
+@media(max-width: 991px){
+    .navigation{
+        left: -300px;
+    }
+    .navigation.active{
+        width: 300px;
+        left: 0;
+    }
+    .main{
+        width: 100%;
+        left: 0;
+    }
+    .main.active{
+        left: 300px;
+    }
+    .cardBox{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 480px){
+    .cardBox{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .user{
+        min-width: 40px;
+    }
+    .navigation{
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+    .navigation.active{
+        width: 100%;
+        left: 0;
+    }
+    .toggle{
+        z-index: 1001;
+    }
+    .main.active .toggle{
+        position: fixed;
+        right: 0;
+        left: initial;
+        color: var(--white);
+    }
 }
