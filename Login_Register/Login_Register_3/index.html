@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <title>Login & Register</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="javaScript.js"></script>
+</head>
+<body>
+    <section class="form__wrapper">
+        <!-- LOGIN FORM -->
+        <form action="" class="form form-active" id="login-form">
+            <h1 class="form__title">Login</h1>
+            <div class="form__content">
+                <div class="form__box">
+                    <i class="ri-mail-line form__icon"></i>
+                    <div class="form__box-input">
+                        <input type="email" class="form__input" placeholder=" " />
+                        <label for="" class="form__label">Email</label>
+                    </div>
+                </div>
+                <div class="form__box">
+                    <i class="ri-lock-2-line form__icon"></i>
+                    <div class="form__box-input">
+                        <input type="password" class="form__input" placeholder=" " id="login-pass" />
+                        <label for="" class="form__label">Password</label>
+                        <i class="ri-eye-off-line form__eye" id="login-eye"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="form__check">
+                <div class="form__check-group">
+                    <input type="checkbox" class="form__check-input" />
+                    <label for="" class="form__check-label">Remember me</label>
+                </div>
+                <a href="#" class="form__forgot">Forgot Password?</a>
+            </div>
+            <button type="submit" class="form__button">Login</button>
+            <p class="login__register">
+                Don't have an account? <span id="register-btn">Register</span>
+            </p>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form action="" class="form" id="register-form">
+            <h1 class="form__title">Register</h1>
+            <div class="form__content">
+                <div class="form__box">
+                    <i class="ri-user-line form__icon"></i>
+                    <div class="form__box-input">
+                        <input type="text" class="form__input" placeholder=" " />
+                        <label for="" class="form__label">Username</label>
+                    </div>
+                </div>
+
+                <div class="form__box">
+                    <i class="ri-mail-line form__icon"></i>
+        
+                    <div class="form__box-input">
+                        <input type="email" class="form__input" placeholder=" " />
+                        <label for="" class="form__label">Email</label>
+                    </div>
+                </div>
+
+                <div class="form__box">
+                    <i class="ri-lock-2-line form__icon"></i>
+                    <div class="form__box-input">
+                        <input type="password" class="form__input" placeholder=" " id="register-pass" />
+                        <label for="" class="form__label">Password</label>
+                        <i class="ri-eye-off-line form__eye" id="register-eye"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form__check">
+                <div class="form__check-group">
+                    <input type="checkbox" class="form__check-input" />
+                    <label for="" class="form__check-label">I agree the terms and conditions.</label>
+                </div>
+            </div>
+            <button type="submit" class="form__button">Register</button>
+            <p class="login__register">
+                Already have an Account? <span id="login-btn">Login</span>
+            </p>
+        </form>
+    </section>
+</body>
+</html>
