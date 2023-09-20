@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+</head>
+<body>
+    <div class="containter mt-3" style="margin: 20px;">
+        <h2 class="text-center alert alert-info">Chức năng Todo List</h2>
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 class="text-center alert alert-warning">Nhập thông tin</h4>
+                    <p>
+                        <label>Name:</label>
+                        <input type="text" name="name" class="form-control" maxlength="100" id="id_name" required>
+                    </p>
+                    <p>
+                        <label>Age:</label>
+                        <input type="number" name="age" class="form-control" id="id_age" required>
+                    </p>
+                    <p>
+                        <label>Gender:</label>
+                        <select name="gender" class="form-control" id="id_gender" required>
+                            <option value="" selected="">---------</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+                    </p>
+                    <input type="submit" value="Lưu thông tin" class="btn btn-outline-success" id="btn_save" onclick="Save_Info()">
+            </div>
+
+            <div class="col-sm-8">
+                <h4 class="text-center alert alert-success">Hiển thị thông tin</h4>
+                <table class="table table-hover" id="data_table">
+                    <thead>
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Create Date</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td> <!-- Trần Văn A -->
+                            <td></td> <!-- 22 -->
+                            <td></td> <!-- Nam -->
+                            <td></td> <!-- 16:46  19/09/2023 -->
+                            <td>
+                                <!-- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit-id">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </button>
+
+                                <button class="btn btn-danger btn-sm" type='submit'>
+                                    <i class="fa-solid fa-trash"></i>
+                                </button> -->
+                            </td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="edit-id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Chỉnh sửa thông tin</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label>Name</label>
+                    <input name="edit_name" id="edit_name" type="text" class="form-control" required>
+                    <label>Age</label>
+                    <input name="edit_age" id="edit_age" type="number" class="form-control" required>
+                    <label>Gender</label>
+                    <select name="gender" class="form-control" id="edit_gender" required>
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                    <label>Create Date</label>
+                    <input name="edit_create_date" id="edit_create_date" type="text" class="form-control" readonly>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" onclick="Update_Info()" data-bs-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        new DataTable('#data_table');
+        // var Number_auto = document.getElementById("data_table");
+        // var rows = Number_auto.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+        // for (var i = 0; i < rows.length; i++) {
+        //     var cell = rows[i].getElementsByTagName("td")[0]; // Lấy ra ô đầu tiên (STT)
+        //     cell.textContent = i + 1; // Đặt số tự động cho ô STT
+        // }
+        let number_edit = -1; // Lấy chỉ mục dòng đang chỉnh sửa
+        function Save_Info(){
+            var name_get = document.getElementById("id_name").value;
+            var age_get = document.getElementById("id_age").value;
+            var gender_get = document.getElementById("id_gender").value;
+            var time = new Date();
+            var day = time.getDate();
+            var mon = time.getMonth() + 1;
+            var year = time.getFullYear();
+            var Hours = time.getHours();
+            var Minutes = time.getMinutes();
+            if(day < 10){
+                day = "0" + day
+            }
+            if(mon < 10){
+                mon = "0" + mon
+            }
+            if(Hours < 10){
+                Hours = "0" + Hours
+            }
+            if(Minutes < 10){
+                Minutes = "0" + Minutes
+            }
+            var get_DateTime = Hours + ":" + Minutes + "  " + day + "/" + mon + "/" + year;
+            // console.log("Đã thực hiện lấy được thông tin");
+            console.log("Tên: " + name_get)
+            console.log("Tuổi: " + age_get)
+            console.log("Giới tính: " + gender_get)
+            console.log("Thời gian tạo: " + get_DateTime)
+
+
+            // Thực hiện thêm dữ liệu vừa lấy được vào trong cookies
+            // => Đầu tiên, tạo một mảng mới (rỗng) dùng để lưu thông tin vừa lấy được
+            let list_Info = [];
+            // => Nếu dữ liệu đã tồn tại trên cookies thì sử dụng hàm 'getCookie()' để lấy dữ liệu và chuyển đổi nó thành một mảng 'list_Info'
+            const existingData = getCookie("list_Info");
+            if (existingData) {
+                list_Info = JSON.parse(existingData);
+            }
+            // => Sau đó, thực hiện thêm thông tin mới được lưu vào trong mảng list_Info
+            list_Info.push({name_get, age_get, gender_get, get_DateTime});
+            // => Tiếp đó, thực hiện lưu mảng này vào trong cookies bằng cách sử dụng hàm setCookie() với thời gian lưu là 1 năm
+            setCookie("list_Info", JSON.stringify(list_Info), 365);
+            // => Gọi hàm Show_All_Info để hiển thị toàn bộ danh sách
+            Show_All_Info(list_Info);
+            // => Xóa thông tin cũ trong khu nhập dữ liệu
+            document.getElementById("id_name").value = "";
+            document.getElementById("id_age").value = "";
+            document.getElementById("id_gender").value = "";
+        }
+
+        function Edit_info(index){
+            const existingData = getCookie("list_Info");
+            if (existingData){
+                const list_Info = JSON.parse(existingData);
+                console.log(list_Info)
+                // Lấy dữ liệu từ trong Cookies và hiển thị thông tin lên trên Modal
+                const item = list_Info[index];
+                document.getElementById("edit_name").value = item.name_get;
+                document.getElementById("edit_age").value = item.age_get;
+                document.getElementById("edit_gender").value = item.gender_get;
+                document.getElementById("edit_create_date").value = item.get_DateTime;
+
+                number_edit = index;
+            }
+        }
+
+        function Update_Info(){
+            const existingData = getCookie("list_Info");
+            if (existingData) {
+                const list_Info = JSON.parse(existingData);
+                // Nếu giá trị number_edit là -1 ==> Không thực hiện chỉnh sửa nên bỏ qua
+                if (number_edit === -1) {
+                    return;
+                }
+                var new_name = document.getElementById("edit_name").value;
+                var new_age = document.getElementById("edit_age").value;
+                var new_gender = document.getElementById("edit_gender").value;
+                var time = new Date();
+                var day = time.getDate();
+                var mon = time.getMonth() + 1;
+                var year = time.getFullYear();
+                var Hours = time.getHours();
+                var Minutes = time.getMinutes();
+                if(day < 10){
+                    day = "0" + day
+                }
+                if(mon < 10){
+                    mon = "0" + mon
+                }
+                if(Hours < 10){
+                    Hours = "0" + Hours
+                }
+                if(Minutes < 10){
+                    Minutes = "0" + Minutes
+                }
+                var new_DateTime = Hours + ":" + Minutes + "  " + day + "/" + mon + "/" + year;
+                list_Info[number_edit] = {name_get:new_name, age_get:new_age, gender_get:new_gender, get_DateTime:new_DateTime}
+                setCookie("list_Info", JSON.stringify(list_Info), 365);
+                Show_All_Info(list_Info);
+                number_edit = -1; // Đặt lại chỉ mục chỉnh sửa
+            }
+        }
+
+        // Tạo hàm thực hiện việc xóa dữ liệu tương ứng dựa theo thông tin của index
+        function Delete_info(index) {
+            const existingData = getCookie("list_Info");
+            if (existingData) {
+                const list_Info = JSON.parse(existingData);
+                list_Info.splice(index, 1);
+                setCookie("list_Info", JSON.stringify(list_Info), 365);
+                Show_All_Info(list_Info);
+            }
+        }
+
+        // Tạo hàm chứa nút xóa
+        function create_Delete_Button(index) {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "btn btn-danger btn-sm";
+            button.innerHTML = '<i class="fa-solid fa-trash"></i>';
+            button.onclick = function() {
+                Delete_info(index);
+            };
+            return button;
+        }
+
+        // Tạo hàm chứa nút chỉnh sửa thông tin
+        function create_Edit_Button(index){
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "btn btn-primary btn-sm";
+            button.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
+            button.setAttribute("data-bs-toggle", "modal");
+            button.setAttribute("data-bs-target", "#edit-id");
+            button.onclick = function() {
+                Edit_info(index);
+            };
+            return button;
+        }
+
+        // Tạo một hàm để hiển thị toàn bộ danh sách lên trên Table
+        function Show_All_Info(list_Info){
+            const table = document.getElementById("data_table");
+            const tbody = table.querySelector("tbody");
+
+            // Xóa bảng hiện tại
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild);
+            }
+
+            // Thêm dữ liệu mới vào bảng
+            list_Info.forEach((item, index)=> {
+                const row = tbody.insertRow(); // Tạo ra một hàng dữ liệu mới
+                const cell0 = row.insertCell(0); // Tạo ra một ô dữ liệu mới của STT
+                const cell1 = row.insertCell(1); // Tạo ra một ô dữ liệu mới của name_get
+                const cell2 = row.insertCell(2); // Tạo ra một ô dữ liệu mới của age_get
+                const cell3 = row.insertCell(3); // Tạo ra một ô dữ liệu mới của gender_get
+                const cell4 = row.insertCell(4); // Tạo ra một ô dữ liệu mới của get_DateTime
+                const cell5 = row.insertCell(5); // Tạo ra một ô dữ liệu mới của Action
+                cell0.textContent = index + 1;
+                cell1.textContent = item.name_get;
+                cell2.textContent = item.age_get;
+                cell3.textContent = item.gender_get;
+                cell4.textContent = item.get_DateTime;
+                const deleteButton = create_Delete_Button(index);
+                const editButton = create_Edit_Button(index);
+                cell5.appendChild(editButton);
+                cell5.appendChild(deleteButton);
+            });
+        }
+
+        // Hàm để lấy giá trị từ cookies
+        function getCookie(name) {
+            const value = "; " + document.cookie;
+            const parts = value.split("; " + name + "=");
+            if (parts.length === 2) {
+                return parts.pop().split(";").shift();
+            }
+        }
+
+        // Hàm để đặt giá trị vào cookies
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + "; " + expires + "; path=/";
+        }
+
+        window.onload = function () {
+            const existingData = getCookie("list_Info");
+            if (existingData) {
+                const list_Info = JSON.parse(existingData);
+                Show_All_Info(list_Info);
+            }
+        };
+    </script>
+</body>
+</html>
