@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="mx-4">
+        <label for="Name">Name:</label>
+        <input type="text" id="id_Name" class="form-control" required>
+        <br>
+        <label for="Email">Email:</label>
+        <input type="text" name="id_Email" id="id_Email" class="form-control" required>
+        <br>
+        <label for="Phone">Phone</label>
+        <input type="text" id="id_Phone" class="form-control" required>
+        <br>
+        <div class="text-center">
+            <button class="btn btn-info" id="Add_Cookies">Add Cookies</button>
+            <button class="btn btn-danger" id="Delete_Cookies">Delete Cookies</button>
+            <button class="btn btn-warning" id="Get_Cookies">Get Cookies</button>
+        </div>
+    </div>
+    
+    <script>
+        // let list_Info = [];
+        var Name_ = document.getElementById("id_Name");
+        var Email_ = document.getElementById("id_Email");
+        var Phone_ = document.getElementById("id_Phone");
+        const Add_ = document.getElementById("Add_Cookies");
+        const Delete_ = document.getElementById("Delete_Cookies");
+        const Get_ = document.getElementById("Get_Cookies");
+
+        Add_.addEventListener("click", () =>{
+            if(Name_.value == "" || Email_.value == "" || Phone_.value == ""){
+                alert("Điền đầy đủ thông tin đi!")
+            }
+            else{
+                // Name_ = Name_.value;
+                // Email_ = Email_.value;
+                // Phone_ = Phone_.value;
+                // list_Info.push({Name_, Email_, Phone_});
+                // setCookie("list_Info", JSON.stringify(list_Info), 365);
+                setCookie("Name", Name_.value, 365);
+                setCookie("Email", Email_.value, 365);
+                setCookie("Phone", Phone_.value, 365);
+                location.reload();
+                
+            }
+        });
+
+        Delete_.addEventListener("click", ()=>{
+            deleteCookie("Name");
+            deleteCookie("Email");
+            deleteCookie("Phone");
+            location.reload();
+            alert("Đã xóa toàn bộ Cookies")
+        });
+
+        Get_.addEventListener("click", ()=>{
+            if(Name_.value == "" || Email_.value == "" || Phone_.value == ""){
+                alert("Cookies không tồn tại")
+            }
+            else{
+                Name_ = getCookie("Name");
+                Email_ = getCookie("Email");
+                Phone_ = getCookie("Phone");
+            }
+        });
+        // console.log(navigator.cookieEnabled);
+        // document.cookie = "FirsName=HoangPhi11343; expires=Sun, 1 January 2010 12:00:00 UTC; path=/";
+        // document.cookie = "LastName=NguyenMinh; expires=Sun, 1 January 2010 12:00:00 UTC; path=/";
+        // console.log(document.cookie);
+
+        // setCookie("Email", "HoangPhi11343@gmail.com", 2);
+        // setCookie("FirsName", "Hoang", 2);
+        // setCookie("LastName", "Phi", 2);
+
+        // deleteCookie("Email")
+        // console.log(getCookie("Name"))
+
+        function setCookie(name, value, days){
+            const date = new Date();
+            date.setTime(date.getTime() + days*24*60*60*1000);
+            let expires = 'expires=' + date.toUTCString();
+            document.cookie = `${name}=${value}; ${expires}; path=/`
+        }
+
+        function deleteCookie(name){
+            setCookie(name, null, null);
+        }
+
+        function getCookie(name){
+            const cDecode = decodeURIComponent(document.cookie);
+            const cArray = cDecode.split("; ");
+            let result = null;
+            // console.log(cArray);
+            cArray.forEach(element => {
+                if(element.indexOf(name) == 0){
+                    result = element.substring(name.length + 1)
+                }
+            })
+            return result;
+        }
+    </script>
+</body>
+</html>
