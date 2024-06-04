@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/app.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" integrity="sha512-eBxzDWX6OiszkLv4+rzUiTP3FgBnDMJeDVkdN3PiCYjZZIUhdWu5aoBJEay8IiDSW+3womeUhVFRZ29c37S8tA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" integrity="sha512-xgIrH5DRuEOcZK5cPtVXx/WSp5DTir2JNcKE5ahV2u51NCTD9UDxbQgZHYHVBlPc4H8tug6BZTYIl2RdA/X0Vg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+    <style>
+        .circle {
+            position: relative;
+            top: 90px;
+            width: 80px;
+            height: 80px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .fa-arrow-rotate-left {
+            color: white;
+            font-size: 42px;
+        }
+    </style>
+    <div class="col-lg-12 justify-content-center">
+        <div class="circle">
+            <a href="index.html">
+                <!-- <i class="fa-solid fa-circle-left"></i> -->
+                <i class="fa-solid fa-arrow-rotate-left"></i>
+            </a>
+        </div>
+        <div class="card mt-5">
+            <div class="card-header text-center text-uppercase fs-2 mt-5 fw-bold">
+                Cài đặt thông số
+            </div>
+            <div class="card-body">
+                <table class="table table-striped text-nowrap">
+                    <tbody>
+                        <tr>
+                            <td class="text-center text-uppercase fs-3 fw-bold">Nhiệt độ</td>
+                            <td>
+                                <input type="text" class="form-control" disabled>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" disabled>
+                            </td>
+                            <td class="text-center text-uppercase fs-3 fw-bold">C</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center text-uppercase fs-3 fw-bold">Độ ẩm</td>
+                            <td>
+                                <input type="text" class="form-control" disabled>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" disabled>
+                            </td>
+                            <td class="text-center text-uppercase fs-3 fw-bold">%</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center text-uppercase fs-3 fw-bold">Tốc độ gió</td>
+                            <td>
+                                <input type="text" class="form-control" disabled>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" disabled>
+                            </td>
+                            <td class="text-center fs-3 fw-bold">m/s</td>
+                        </tr>
+                    </tbody>
+                </table>
+           </div>
+        </div>
+    </div>
+</body>
+</html>

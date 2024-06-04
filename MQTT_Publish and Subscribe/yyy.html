@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT Web</title>
+    <!-- Load Paho MQTT library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <h1>MQTT Web Example</h1>
+
+    <input type="text" id="messageInput">
+    <button onclick="sendMessage()">Send Message</button>
+
+    <div id="messages"></div>
+
+    <script>
+        // Thông tin về MQTT broker
+        var mqttBroker = '192.168.1.104';
+        var mqttPort = 9001;
+        var mqttClientId = 'mqtt_web_client';
+
+        // Tạo kết nối MQTT
+        var client = new Paho.MQTT.Client(mqttBroker, mqttPort, mqttClientId);
+
+        // Khi kết nối được thiết lập
+        client.onConnectionLost = function (responseObject) {
+            if (responseObject.errorCode !== 0) {
+                console.log("Connection lost:", responseObject.errorMessage);
+            }
+        };
+
+        // Khi nhận được tin nhắn mới
+        client.onMessageArrived = function (message) {
+            console.log("Received message:", message.payloadString);
+            document.getElementById('messages').innerHTML += '<p>' + message.payloadString + '</p>';
+        };
+
+        // Kết nối tới broker
+        client.connect({
+            onSuccess: function () {
+                console.log("Connected to MQTT broker");
+                // Đăng ký chủ đề để nhận tin nhắn
+                client.subscribe('your/topic');
+            },
+            onFailure: function (responseObject) {
+                console.log("Failed to connect to MQTT broker:", responseObject.errorMessage);
+            }
+        });
+
+        // Gửi tin nhắn MQTT
+        // function sendMessage() {
+        //     var message = document.getElementById('messageInput').value;
+        //     var topic = 'your/topic';
+        //     var mqttMessage = new Paho.MQTT.Message(message);
+        //     mqttMessage.destinationName = topic;
+        //     client.send(mqttMessage);
+        //     document.getElementById('messageInput').value = ''; // Xóa nội dung của input sau khi gửi
+        // }
+        function sendMessage() {
+            if (client && client.isConnected()) { // Kiểm tra kết nối trước khi gửi tin nhắn
+                var msg = document.getElementById('Message').value;
+                var topic = document.getElementById('topic').value;
+                var Message = new Paho.MQTT.Message(msg);
+                Message.destinationName = topic;
+                client.send(Message);
+            } else {
+                alert("Không có kết nối MQTT hoặc kết nối không hợp lệ.");
+            }
+        }
+    </script>
+</body>
+</html>

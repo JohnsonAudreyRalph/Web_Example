@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống</title>
+    <link href="css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" integrity="sha512-eBxzDWX6OiszkLv4+rzUiTP3FgBnDMJeDVkdN3PiCYjZZIUhdWu5aoBJEay8IiDSW+3womeUhVFRZ29c37S8tA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" integrity="sha512-xgIrH5DRuEOcZK5cPtVXx/WSp5DTir2JNcKE5ahV2u51NCTD9UDxbQgZHYHVBlPc4H8tug6BZTYIl2RdA/X0Vg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+
+				<ul class="sidebar-nav">
+					<table class="table table-borderless mt-3">
+						<tr>
+							<td></td>
+							<td class="text-center text-uppercase fs-3" style="background-color: #ffffff;">Giai đoạn 3/5</td>
+							<td></td>
+						</tr>
+					</table>
+
+					<table class="table table-borderless mt-3">
+						<tr>
+							<td></td>
+							<td></td>
+							<td class="text-center fs-6" style="background-color: #ffffff;">Trạng thái hoạt động</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+
+					<hr class="horizontal border border-white border-2 opacity-50">
+
+					<table class="table table-borderless mt-3" style="margin-left: -15px;">
+						<tr>
+							<td></td>
+							<td>
+								<button type="button" class="btn btn-primary btn-lg" style="display: block; width: 100%;">Chạy</button>
+							</td>
+							<td>
+								<button type="button" class="btn btn-primary btn-lg text-nowrap" style="display: block; width: 100%;">Dừng lại</button>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<button type="button" class="btn btn-primary btn-lg text-nowrap" style="display: block; width: 100%;">Tự động</button>
+							</td>
+							<td>
+								<button type="button" class="btn btn-primary btn-lg text-nowrap" style="display: block; width: 100%;">Thủ công</button>
+							</td>
+						</tr>
+					</table>
+					
+					<hr class="horizontal border border-white border-2 opacity-50">
+
+
+					<table class="table table-borderless">
+						<tr>
+							<td></td>
+							<td class="text-white text-uppercase">Nhiệt độ:</td>
+							<td></td>
+							<td>
+								<input type="text" class="form-control">
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="text-white text-uppercase">Độ ẩm:</td>
+							<td></td>
+							<td>
+								<input type="text" class="form-control">
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="text-white text-uppercase text-nowrap">Tốc độ gió:</td>
+							<td></td>
+							<td>
+								<input type="text" class="form-control">
+							</td>
+							<td></td>
+						</tr>
+					</table>
+				</ul>
+
+				<style>
+					.checkbox-round {
+						width: 5em;
+						height: 5em;
+						background-color: white;
+						border-radius: 50%;
+						vertical-align: middle;
+						border: 1px solid #7F7F7F;
+						appearance: none;
+						-webkit-appearance: none;
+						outline: none;
+						cursor: pointer;
+					}
+
+					.checkbox-round:checked {
+						background-color: rgb(241, 0, 0);
+					}
+				</style>
+
+				<div class="sidebar-cta mb-4" style="margin-left: -15px;">
+					<table class="table table-borderless">
+						<tr>
+							<td></td>
+							<td>
+								<input type="checkbox" class="checkbox-round ms-4" />
+							</td>
+							<td class="text-white text-uppercase">Đèn UV</td>
+						</tr>
+						<tr>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</nav>
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<a class="sidebar-toggle js-sidebar-toggle">
+					<i class="hamburger align-self-center"></i>
+				</a>
+				
+				<table class="table table-borderless">
+					<tr>
+						<td>
+							<!-- <button type="button" class="btn btn-primary btn-lg text-center fs-2" style="display: block; width: 100%;">Tổng quan</button> -->
+                            <a href="index.html" type="button" class="btn btn-primary btn-lg text-center fs-2" style="display: block; width: 100%;">Tổng quan</a>
+						</td>
+						<td></td>
+						<td>
+							<!-- <button type="button" class="btn btn-primary btn-lg text-center fs-2" style="display: block; width: 100%;">Hệ thống</button> -->
+                            <a href="system.html" type="button" class="btn btn-primary btn-lg text-center fs-2" style="display: block; width: 100%;">Hệ thống</a>
+						</td>
+					</tr>
+				</table>
+			</nav>
+
+            <!-- <style>
+                #Choose_the_fruit .table {
+                    table-layout: fixed;
+                    width: 100%;
+                }
+                #Choose_the_fruit .table td {
+                    width: calc(100% / 7);
+                    text-align: center;
+                    vertical-align: middle;
+                }
+            </style> -->
+
+			<main class="content">
+				<div class="container-fluid p-0">
+                    <div class="card text-center">
+                        <div class="card-header text-uppercase fs-2 fw-bold">
+                            Chọn loại quả
+                        </div>
+                        <div class="card-body" id="Choose_the_fruit">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td>
+										<a href="info.html" type="button" class="btn btn-primary text-nowrap text-center fs-4 text-uppercase" style="display: block; width: 100%;">Chuối tiêu hồng</a>
+                                    </td>
+                                    <td>
+                                        <a href="info.html" type="button" class="btn btn-primary text-nowrap text-center fs-4 text-uppercase" style="display: block; width: 100%;">Cam</a>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                                <tr>
+                                    <td>
+                                        <a href="info.html" type="button" class="btn btn-primary text-nowrap text-center fs-4 text-uppercase" style="display: block; width: 100%;">Xoài</a>
+                                    </td>
+                                    <td>
+                                        <a href="info.html" type="button" class="btn btn-primary text-nowrap text-center fs-4 text-uppercase" style="display: block; width: 100%;">Dứa</a>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                                <tr>
+                                    <td>
+                                        <a href="info.html" type="button" class="btn btn-primary text-nowrap text-center fs-4 text-uppercase" style="display: block; width: 100%;">Quýt</a>
+                                    </td>
+                                    <td>
+                                        <a href="info.html" type="button" class="btn btn-primary text-nowrap text-center fs-4 text-uppercase" style="display: block; width: 100%;">Khác</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+				</div>
+
+                <style>
+					.circle {
+						position: fixed;
+						bottom: 20px;
+						right: 20px;
+						width: 80px;
+						height: 80px;
+						background-color: #007bff;
+						border-radius: 50%;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+
+					.fa-gear {
+						color: white;
+						font-size: 42px;
+					}
+				</style>
+				<div class="circle">
+					<a href="setting.html">
+						<i class="fa-solid fa-gear"></i>
+					</a>
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<script src="js/app.js"></script>
+</body>
+</html>

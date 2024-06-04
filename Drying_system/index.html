@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<title>Tổng quan</title>
+	<link href="css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" integrity="sha512-eBxzDWX6OiszkLv4+rzUiTP3FgBnDMJeDVkdN3PiCYjZZIUhdWu5aoBJEay8IiDSW+3womeUhVFRZ29c37S8tA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" integrity="sha512-xgIrH5DRuEOcZK5cPtVXx/WSp5DTir2JNcKE5ahV2u51NCTD9UDxbQgZHYHVBlPc4H8tug6BZTYIl2RdA/X0Vg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+
+				<ul class="sidebar-nav">
+					<table class="table table-borderless mt-3">
+						<tr>
+							<td></td>
+							<td class="text-center text-uppercase fs-3" style="background-color: #ffffff;">Giai đoạn 3/5</td>
+							<td></td>
+						</tr>
+					</table>
+
+					<table class="table table-borderless mt-3">
+						<tr>
+							<td></td>
+							<td></td>
+							<td class="text-center fs-6" style="background-color: #ffffff;">Trạng thái hoạt động</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+
+					<hr class="horizontal border border-white border-2 opacity-50">
+
+					<table class="table table-borderless mt-3" style="margin-left: -15px;">
+						<tr>
+							<td></td>
+							<td>
+								<button type="button" class="btn btn-primary btn-lg" style="display: block; width: 100%;">Chạy</button>
+							</td>
+							<td>
+								<button type="button" class="btn btn-primary btn-lg text-nowrap" style="display: block; width: 100%;">Dừng lại</button>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<button type="button" class="btn btn-primary btn-lg text-nowrap" style="display: block; width: 100%;">Tự động</button>
+							</td>
+							<td>
+								<button type="button" class="btn btn-primary btn-lg text-nowrap" style="display: block; width: 100%;">Thủ công</button>
+							</td>
+						</tr>
+					</table>
+					
+					<hr class="horizontal border border-white border-2 opacity-50">
+
+
+					<table class="table table-borderless">
+						<tr>
+							<td></td>
+							<td class="text-white text-uppercase">Nhiệt độ:</td>
+							<td></td>
+							<td>
+								<input type="text" class="form-control">
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="text-white text-uppercase">Độ ẩm:</td>
+							<td></td>
+							<td>
+								<input type="text" class="form-control">
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="text-white text-uppercase text-nowrap">Tốc độ gió:</td>
+							<td></td>
+							<td>
+								<input type="text" class="form-control">
+							</td>
+							<td></td>
+						</tr>
+					</table>
+				</ul>
+
+				<style>
+					.checkbox-round {
+						width: 5em;
+						height: 5em;
+						background-color: white;
+						border-radius: 50%;
+						vertical-align: middle;
+						border: 1px solid #7F7F7F;
+						appearance: none;
+						-webkit-appearance: none;
+						outline: none;
+						cursor: pointer;
+					}
+
+					.checkbox-round:checked {
+						background-color: rgb(241, 0, 0);
+					}
+				</style>
+
+				<div class="sidebar-cta mb-4" style="margin-left: -15px;">
+					<table class="table table-borderless">
+						<tr>
+							<td></td>
+							<td>
+								<input type="checkbox" class="checkbox-round ms-4" />
+							</td>
+							<td class="text-white text-uppercase">Đèn UV</td>
+						</tr>
+						<tr>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</nav>
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<a class="sidebar-toggle js-sidebar-toggle">
+					<i class="hamburger align-self-center"></i>
+				</a>
+				
+				<table class="table table-borderless">
+					<tr>
+						<!-- <td class="text-center text-uppercase fs-2 mx-3" style="background-color: aliceblue; color: red;">Tổng quan</td> -->
+						<td>
+							<!-- <button type="button" class="btn btn-primary btn-lg text-center fs-2" style="display: block; width: 100%;">Tổng quan</button> -->
+							<a href="index.html" type="button" class="btn btn-primary btn-lg text-center fs-2" style="display: block; width: 100%;">Tổng quan</a>
+						</td>
+						<td></td>
+						<!-- <td class="text-center text-uppercase fs-2 mx-3" style="background-color: rgb(87, 128, 164); color: red;">Hệ thống</td> -->
+						<td>
+							<!-- <button type="button" class="btn btn-primary btn-lg text-center fs-2" style="display: block; width: 100%;">Hệ thống</button> -->
+							<a href="system.html" type="button" class="btn btn-primary btn-lg text-center fs-2" style="display: block; width: 100%;">Hệ thống</a>
+						</td>
+					</tr>
+				</table>
+			</nav>
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="row">
+						<div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+							<div class="card">
+								<div class="card-body p-3 text-center">
+									<div class="row">
+										<div class="text-center">
+											<h5 class="font-weight-bolder mb-0">
+												Thời gian hiện tại
+											</h5>
+											<div class="mt-2 font-weight-bolder fs-2" id="clock"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<script>
+							function updateClock() {
+								var now = new Date();
+								var hours = now.getHours();
+								var minutes = now.getMinutes();
+								var seconds = now.getSeconds();
+						
+								// Format lại để đảm bảo rằng giờ, phút, giây luôn có 2 chữ số
+								if (hours < 10) hours = '0' + hours;
+								if (minutes < 10) minutes = '0' + minutes;
+								if (seconds < 10) seconds = '0' + seconds;
+						
+								var timeString = hours + ':' + minutes + ':' + seconds;
+								document.getElementById('clock').textContent = timeString;
+							}
+						
+							// Gọi hàm updateClock mỗi giây để cập nhật thời gian
+							setInterval(updateClock, 1000);
+						
+							// Cập nhật thời gian lần đầu tiên khi trang được tải
+							updateClock();
+						</script>
+						
+						<div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+							<div class="card">
+								<div class="card-body p-3">
+									<div class="row">
+										<div class="text-center">
+											<h5 class="font-weight-bolder mb-0">
+												Thời gian dự tính
+											</h5>
+											<div class="mt-2 font-weight-bolder fs-3" id="countdown"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<script>
+							// Thời gian đếm ngược: 50 phút
+							var countdownTime = 50 * 60 * 1000; // Chuyển đổi 50 phút thành mili giây
+						
+							function startCountdown() {
+								var targetTime = new Date().getTime() + countdownTime; // Lấy thời gian hiện tại và thêm thời gian đếm ngược
+						
+								function updateCountdown() {
+									var now = new Date().getTime(); // Lấy thời gian hiện tại
+									var distance = targetTime - now; // Tính khoảng cách thời gian còn lại
+						
+									var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+									var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+						
+									document.getElementById('countdown').textContent = minutes + ' phút ' + seconds + ' giây';
+						
+									// Kiểm tra xem đồng hồ đếm ngược đã hết thời gian chưa
+									if (distance <= 0) {
+										clearInterval(intervalId);
+										document.getElementById('countdown').textContent = "Đã hết thời gian!";
+									}
+								}
+						
+								// Cập nhật đồng hồ đếm ngược mỗi giây
+								updateCountdown();
+								var intervalId = setInterval(updateCountdown, 1000);
+							}
+						
+							// Tự động bắt đầu đồng hồ đếm ngược khi trang được tải
+							startCountdown();
+						</script>
+						
+						<div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+							<div class="card">
+								<div class="card-body p-3">
+									<div class="row">
+										<div class="text-center">
+											<h5 class="font-weight-bolder mb-0">
+												Đang sấy
+											</h5>
+											<div class="mt-2 font-weight-bolder fs-3 text-uppercase">Quả</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="mt-2 mb-xl-0">
+							<div class="card">
+								<div class="card-body p-3">
+									<div class="row">
+										<div class="ms-auto text-center mt-2 mt-lg-0">
+											<div class="border-radius-lg h-70">
+												<img class="w-70 position-relative z-index-2 pt-4"
+													src="img/icons/icon-48x48.png">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<style>
+					.circle {
+						position: fixed;
+						bottom: 20px;
+						right: 20px;
+						width: 80px;
+						height: 80px;
+						background-color: #007bff;
+						border-radius: 50%;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+
+					.fa-gear {
+						color: white;
+						font-size: 42px;
+					}
+				</style>
+				<div class="circle">
+					<a href="setting.html">
+						<i class="fa-solid fa-gear"></i>
+					</a>
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<script src="js/app.js"></script>
+
+</body>
+</html>
