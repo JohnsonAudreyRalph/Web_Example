@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Card Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+        }
+
+        .card {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin: 10px;
+        }
+
+        .card-content {
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-content">Nội dung bên trong card 1</div>
+        <button class="copy-btn" onclick="copyContent(this)">Copy</button>
+    </div>
+    <div class="card">
+        <div class="card-content">Nội dung bên trong card 2</div>
+        <button class="copy-btn" onclick="copyContent(this)">Copy</button>
+    </div>
+    
+    <script>
+        function copyContent(button) {
+            const card = button.parentElement;
+            const cardContent = card.querySelector(".card-content").innerText;
+            const textarea = document.createElement("textarea");
+            textarea.value = cardContent;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            alert("Nội dung đã được sao chép!");
+        }
+    </script>
+</body>
+</html>
